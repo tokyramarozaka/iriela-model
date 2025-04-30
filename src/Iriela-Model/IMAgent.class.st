@@ -25,8 +25,7 @@ IMAgent >> moveRandomly [
 IMAgent >> pov [ 
 	<pov> 
 	^ CMPointOfView 
-		color: CMColor blue
-		shape: #star
+		image: IMImages agent
 		size: 0.8
 ]
 

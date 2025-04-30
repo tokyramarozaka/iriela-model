@@ -15,10 +15,9 @@ IMFish >> initialize [
 { #category : 'accessing' }
 IMFish >> pov [ 
 	<pov> 
-	^ CMPointOfView 
-		color: CMColor gold
-		shape: #diamond
-		size: 0.5
+	^ CMPointOfView
+		image: IMImages fish
+		size: 0.8
 ]
 
 { #category : 'control' }

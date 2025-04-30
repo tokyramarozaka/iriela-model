@@ -16,9 +16,8 @@ IMWood >> initialize [
 IMWood >> pov [ 
 	<pov> 
 	^ CMPointOfView 
-		color: CMColor green 
-		shape: #diamond 
-		size: 0.5
+		image: IMImages tree
+		size: 0.8
 ]
 
 { #category : 'control' }
