@@ -18,7 +18,7 @@ IMWood >> pov [
 	^ CMPointOfView 
 		color: CMColor green 
 		shape: #diamond 
-		size: 0.8
+		size: 0.5
 ]
 
 { #category : 'control' }

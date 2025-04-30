@@ -101,12 +101,6 @@ IMModel class >> prefix [
 ]
 
 { #category : 'accessing' }
-IMModel >> agents [
-	<getterFor: #IMAgent >
-	^ agents
-]
-
-{ #category : 'accessing' }
 IMModel >> cells [
 	<getterFor: #IMCell>
 	^ cells
@@ -116,6 +110,12 @@ IMModel >> cells [
 IMModel >> fishes [
 	<getterFor: #IMFish >
 	^ fishes
+]
+
+{ #category : 'accessing' }
+IMModel >> imAgents [
+	<getterFor: #IMAgent >
+	^ agents
 ]
 
 { #category : 'initialization' }

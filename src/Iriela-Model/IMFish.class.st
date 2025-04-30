@@ -16,9 +16,9 @@ IMFish >> initialize [
 IMFish >> pov [ 
 	<pov> 
 	^ CMPointOfView 
-		color: CMColor blue
-		shape: #star
-		size: 0.8 
+		color: CMColor gold
+		shape: #diamond
+		size: 0.5
 ]
 
 { #category : 'control' }
