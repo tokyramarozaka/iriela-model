@@ -7,11 +7,20 @@ Class {
 	#package : 'Iriela-Model'
 }
 
+{ #category : 'initialization' }
+IMWood >> initialize [ 
+	super initialize .
+]
+
 { #category : 'accessing' }
 IMWood >> pov [ 
 	<pov> 
 	^ CMPointOfView 
 		color: CMColor green 
-		shape: #arrow 
-		size: 0.6
+		shape: #diamond 
+		size: 0.8
+]
+
+{ #category : 'control' }
+IMWood >> step [
 ]

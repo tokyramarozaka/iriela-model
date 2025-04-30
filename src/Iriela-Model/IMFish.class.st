@@ -7,11 +7,21 @@ Class {
 	#package : 'Iriela-Model'
 }
 
+{ #category : 'initialization' }
+IMFish >> initialize [ 
+	super initialize .
+]
+
 { #category : 'accessing' }
 IMFish >> pov [ 
 	<pov> 
 	^ CMPointOfView 
-		color: CMColor azure
-		shape: #circle 
-		size: 0.6
+		color: CMColor blue
+		shape: #star
+		size: 0.8 
+]
+
+{ #category : 'control' }
+IMFish >> step [
+	
 ]

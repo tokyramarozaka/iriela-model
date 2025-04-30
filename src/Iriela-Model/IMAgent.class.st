@@ -16,6 +16,11 @@ IMAgent >> move [
 		ifNone: [ self moveRandomly ]
 ]
 
+{ #category : 'as yet unclassified' }
+IMAgent >> moveRandomly [ 
+	self randomWalk 
+]
+
 { #category : 'accessing' }
 IMAgent >> pov [ 
 	<pov> 

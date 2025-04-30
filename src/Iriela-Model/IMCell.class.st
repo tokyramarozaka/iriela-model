@@ -7,5 +7,5 @@ Class {
 
 { #category : 'testing' }
 IMCell >> hasResource [ 
-	^ [self hasOccupantsOfClass: IMWood] or: [self hasOccupantsOfClass: IMFish] 
+	^ (self hasOccupantsOfClass: IMWood) or: [self hasOccupantsOfClass: IMFish] 
 ]
