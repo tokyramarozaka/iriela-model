@@ -3,9 +3,34 @@ Class {
 	#superclass : 'CMAgent',
 	#traits : 'TCMLocated',
 	#classTraits : 'TCMLocated classTrait',
+	#instVars : [
+		'collectedResources'
+	],
 	#category : 'Iriela-Model',
 	#package : 'Iriela-Model'
 }
+
+{ #category : 'as yet unclassified' }
+IMVillager >> collectResource [ 
+	<action>
+	| resource | 
+	self patch hasResource ifFalse: [ ^ self ].
+	resource := self patch getResource. 
+	collectedResources add: resource. 
+	resource leave.
+]
+
+{ #category : 'accessing' }
+IMVillager >> collectedResources [
+
+	^ collectedResources
+]
+
+{ #category : 'initialization' }
+IMVillager >> initialize [ 
+	super initialize . 
+	collectedResources := OrderedCollection new.
+]
 
 { #category : 'control' }
 IMVillager >> move [ 
@@ -32,4 +57,5 @@ IMVillager >> pov [
 { #category : 'control' }
 IMVillager >> step [ 
 	self move. 
+	self collectResource .
 ]

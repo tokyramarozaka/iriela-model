@@ -1,6 +1,6 @@
 Class {
 	#name : 'IMFish',
-	#superclass : 'CMAgent',
+	#superclass : 'IMResource',
 	#traits : 'TCMLocated',
 	#classTraits : 'TCMLocated classTrait',
 	#category : 'Iriela-Model',

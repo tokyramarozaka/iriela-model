@@ -29,9 +29,9 @@ IMModel class >> initializeParameters [
 	super initializeParameters . 
 	numberOfRows := 5.
 	numberOfColumns := 5.
-	numberOfAgents := 5.
-	numberOfWoods := 2.
-	numberOfFishes := 2
+	numberOfAgents := 2.
+	numberOfWoods := 4.
+	numberOfFishes := 4
 ]
 
 { #category : 'accessing' }

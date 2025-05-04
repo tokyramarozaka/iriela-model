@@ -1,6 +1,6 @@
 Class {
 	#name : 'IMWood',
-	#superclass : 'CMAgent',
+	#superclass : 'IMResource',
 	#traits : 'TCMLocated',
 	#classTraits : 'TCMLocated classTrait',
 	#category : 'Iriela-Model',
