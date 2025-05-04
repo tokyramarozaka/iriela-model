@@ -3,7 +3,7 @@ Class {
 	#superclass : 'CMAbstractModel',
 	#instVars : [
 		'cells',
-		'agents',
+		'villagers',
 		'woods',
 		'fishes'
 	],
@@ -114,8 +114,8 @@ IMModel >> fishes [
 
 { #category : 'accessing' }
 IMModel >> imAgents [
-	<getterFor: #IMAgent >
-	^ agents
+	<getterFor: #IMVillager >
+	^ villagers
 ]
 
 { #category : 'initialization' }
@@ -130,13 +130,13 @@ IMModel >> init [
 	
 	self createN: self class numberOfWoods randomlyLocatedAloneEntities: IMWood .
 	self createN: self class numberOfFishes randomlyLocatedAloneEntities: IMFish .
-	self createN: self class numberOfAgents randomlyLocatedAloneEntities: IMAgent.
+	self createN: self class numberOfAgents randomlyLocatedAloneEntities: IMVillager.
 ]
 
 { #category : 'initialization' }
 IMModel >> initialize [ 
 	super initialize. 
-	agents := OrderedCollection new.
+	villagers := OrderedCollection new.
 	cells := OrderedCollection new.
 	woods := OrderedCollection new. 
 	fishes := OrderedCollection new.
@@ -151,7 +151,7 @@ IMModel >> numberOfRemainingWoods [
 { #category : 'initialization' }
 IMModel >> step [ 
 	<control> 
-	agents do: [ :each | each step ]
+	villagers do: [ :each | each step ]
 ]
 
 { #category : 'accessing' }

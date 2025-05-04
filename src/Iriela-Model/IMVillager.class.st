@@ -1,5 +1,5 @@
 Class {
-	#name : 'IMAgent',
+	#name : 'IMVillager',
 	#superclass : 'CMAgent',
 	#traits : 'TCMLocated',
 	#classTraits : 'TCMLocated classTrait',
@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : 'control' }
-IMAgent >> move [ 
+IMVillager >> move [ 
 	<action> 
 	self patch neighbourhood 
 		detect: [ :cell | cell hasResource ]
@@ -17,12 +17,12 @@ IMAgent >> move [
 ]
 
 { #category : 'as yet unclassified' }
-IMAgent >> moveRandomly [ 
+IMVillager >> moveRandomly [ 
 	self randomWalk 
 ]
 
 { #category : 'accessing' }
-IMAgent >> pov [ 
+IMVillager >> pov [ 
 	<pov> 
 	^ CMPointOfView 
 		image: IMImages agent
@@ -30,6 +30,6 @@ IMAgent >> pov [
 ]
 
 { #category : 'control' }
-IMAgent >> step [ 
+IMVillager >> step [ 
 	self move. 
 ]
