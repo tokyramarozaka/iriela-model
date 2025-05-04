@@ -12,7 +12,8 @@ Class {
 		'numberOfColumns',
 		'numberOfAgents',
 		'numberOfWoods',
-		'numberOfFishes'
+		'numberOfFishes',
+		'protectedProbability'
 	],
 	#category : 'Iriela-Model',
 	#package : 'Iriela-Model'
@@ -25,13 +26,15 @@ IMModel class >> aboutThisModel [
 ]
 
 { #category : 'initialization' }
-IMModel class >> initializeParameters [ 
-	super initializeParameters . 
+IMModel class >> initializeParameters [
+
+	super initializeParameters.
 	numberOfRows := 5.
 	numberOfColumns := 5.
 	numberOfAgents := 2.
 	numberOfWoods := 4.
-	numberOfFishes := 4
+	numberOfFishes := 4.
+	protectedProbability := 3.
 ]
 
 { #category : 'accessing' }
@@ -101,6 +104,17 @@ IMModel class >> prefix [
 ]
 
 { #category : 'accessing' }
+IMModel class >> protectedProbability [
+
+	^ protectedProbability 
+]
+
+{ #category : 'accessing' }
+IMModel class >> protectedProbability: aSmallInteger [
+	protectedProbability := aSmallInteger .
+]
+
+{ #category : 'accessing' }
 IMModel >> cells [
 	<getterFor: #IMCell>
 	^ cells
@@ -119,18 +133,29 @@ IMModel >> imAgents [
 ]
 
 { #category : 'initialization' }
-IMModel >> init [ 
-	<init> 
-	self 
+IMModel >> init [
+
+	<init>
+	self
 		createGridNumberOfRows: self class numberOfRows
-		numberOfColumns:  self class numberOfColumns
-		neighbourhood: 4 
+		numberOfColumns: self class numberOfColumns
+		neighbourhood: 4
 		closed: true.
-		
-	
-	self createN: self class numberOfWoods randomlyLocatedAloneEntities: IMWood .
-	self createN: self class numberOfFishes randomlyLocatedAloneEntities: IMFish .
-	self createN: self class numberOfAgents randomlyLocatedAloneEntities: IMVillager.
+
+
+	self
+		createN: self class numberOfWoods
+		randomlyLocatedAloneEntities: IMWood.
+	self
+		createN: self class numberOfFishes
+		randomlyLocatedAloneEntities: IMFish.
+	self
+		createN: self class numberOfAgents
+		randomlyLocatedAloneEntities: IMVillager.
+
+	self cells do: [ :each |
+		self class protectedProbability atRandom
+		== self class protectedProbability ifTrue: [ each makeProtected ] ]
 ]
 
 { #category : 'initialization' }
@@ -140,6 +165,12 @@ IMModel >> initialize [
 	cells := OrderedCollection new.
 	woods := OrderedCollection new. 
 	fishes := OrderedCollection new.
+]
+
+{ #category : 'accessing' }
+IMModel >> numberOfRemainingFishes [
+	<probeNamed: 'Remaining fishes' color: 'B80BE5'>
+	^ fishes count: [ :each | each patch isNotNil ]
 ]
 
 { #category : 'accessing' }
